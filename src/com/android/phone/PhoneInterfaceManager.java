@@ -1937,7 +1937,11 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         final long identity = Binder.clearCallingIdentity();
         try {
             if (DBG_LOC) log("getCellLocation: is active user");
-            Bundle data = new Bundle();
+	    Phone phone = getPhone(mSubscriptionController.getDefaultDataSubId());
+	    if (phone == null) {
+		return null;
+	    }
+	    Bundle data = new Bundle();
             int subId = mSubscriptionController.getDefaultDataSubId();
             CellLocation cl = (CellLocation) sendRequest(CMD_GET_CELL_LOCATION, workSource, subId);
             cl.fillInNotifierBundle(data);
