@@ -5797,6 +5797,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             if (phone == null) {
                 phone = getDefaultPhone();
             }
+	    if(phone == null)
+		return null;
 
             return VoicemailNotificationSettingsUtil.getRingtoneUri(phone.getContext());
         } finally {
@@ -5833,6 +5835,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             if (phone == null) {
                 phone = defaultPhone;
             }
+	    if(phone == null)
+		return ;
             VoicemailNotificationSettingsUtil.setRingtoneUri(phone.getContext(), uri);
         } finally {
             Binder.restoreCallingIdentity(identity);
@@ -5854,7 +5858,8 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
             if (phone == null) {
                 phone = getDefaultPhone();
             }
-
+	    if(phone == null)
+		return false;
             return VoicemailNotificationSettingsUtil.isVibrationEnabled(phone.getContext());
         } finally {
             Binder.restoreCallingIdentity(identity);
