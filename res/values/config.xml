@@ -200,9 +200,9 @@
     <!-- Flag indicating if SIM state should be checked before making an outgoing call. -->
     <bool name="config_checkSimStateBeforeOutgoingCall">false</bool>
     <!-- Package name for the SIM unlock dialog.[DO NOT TRANSLATE] -->
-    <string name="config_simUnlockUiPackage" translatable="false">@null</string>
+    <string name="config_simUnlockUiPackage" translatable="false">true</string>
     <!-- Class name for the SIM unlock dialog.[DO NOT TRANSLATE] -->
-    <string name="config_simUnlockUiClass" translatable="false">@null</string>
+    <string name="config_simUnlockUiClass" translatable="false">true</string>
 
     <!-- Flag indicating whether to allow visual voicemail if available on the device.[DO NOT TRANSLATE] -->
     <bool name="allow_visual_voicemail">true</bool>
