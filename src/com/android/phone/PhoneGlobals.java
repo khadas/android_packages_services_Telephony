@@ -548,14 +548,9 @@ public class PhoneGlobals extends ContextWrapper {
             PhoneConfigurationManager.registerForMultiSimConfigChange(
                     mHandler, EVENT_MULTI_SIM_CONFIG_CHANGED, null);
 
-            int callbacksLen = tm.getSupportedModemCount();
-            mTelephonyCallbacks = new PhoneAppCallback[callbacksLen];
+            mTelephonyCallbacks = new PhoneAppCallback[tm.getSupportedModemCount()];
 
             for (Phone phone : PhoneFactory.getPhones()) {
-                if (callbacksLen < 1) {
-                    break;
-                }
-                callbacksLen--;
                 int subId = phone.getSubId();
                 PhoneAppCallback callback = new PhoneAppCallback(subId);
                 tm.createForSubscriptionId(subId).registerTelephonyCallback(
